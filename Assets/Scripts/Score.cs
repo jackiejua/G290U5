@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
     public int score = 0;
+
+    [SerializeField]
+    private TextMeshProUGUI playerone_text;
+
+ //   [SerializeField]
+//    private int playerone_score;
 
     void OnTriggerEnter(Collider other)
     {
@@ -12,6 +19,14 @@ public class Score : MonoBehaviour
         {
             score++;
             Debug.Log("Player Two Score: " + score);
+            playerone_text.text = "Player 2: " + score;
+
+            if(score == 10)
+            {
+                Debug.Log("Player Two Wins!");
+                playerone_text.text = "Player 2 Wins!";
+            }
+           
         }
     }
 }
