@@ -10,10 +10,12 @@ public class Score : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI playerone_text;
 
+    GameObject manager;
+
  //   [SerializeField]
 //    private int playerone_score;
 
-    void OnTriggerEnter(Collider other)
+   void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("ScoreTrigger") && other.transform.position.y > transform.position.y)
         {
@@ -29,4 +31,11 @@ public class Score : MonoBehaviour
            
         }
     }
+
+     void Start()
+    {
+      //  manager = gameObject.FindGameObjectWithTag("manager");
+      //  manager.GetComponent<PlayerManager>().score = score;
+    }
+
 }

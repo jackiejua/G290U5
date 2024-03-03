@@ -9,6 +9,9 @@ public class PlayerTwoControl : MonoBehaviour
     private bool isJumping = false;
     private Rigidbody rb;
 
+    public float pushForce = 4.0f;
+    private ControllerColliderHit contact;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,5 +53,14 @@ public class PlayerTwoControl : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         isJumping = false;
+    }
+
+     void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        contact = hit;
+        Rigidbody body = hit.collider.attachedRigidbody;
+        if (body == null || body.isKinematic){
+            body.velocity = hit.moveDirection * pushForce;
+        }
     }
 }

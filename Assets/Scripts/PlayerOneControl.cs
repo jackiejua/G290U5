@@ -7,7 +7,11 @@ public class PlayerOneControl : MonoBehaviour
     public float speed = 5.0f;
     public float jumpForce = 5.0f;
     private bool isJumping = false;
+
+    public float pushForce = 4.0f;
     private Rigidbody rb;
+
+    private ControllerColliderHit contact;
 
     void Start()
     {
@@ -50,5 +54,14 @@ public class PlayerOneControl : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         isJumping = false;
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        contact = hit;
+        Rigidbody body = hit.collider.attachedRigidbody;
+        if (body == null || body.isKinematic){
+            body.velocity = hit.moveDirection * pushForce;
+        }
     }
 }
