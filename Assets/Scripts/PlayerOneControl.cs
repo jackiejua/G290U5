@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerOneControl : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float jumpForce = 5.0f;
+   static public float speed = 5.0f;
+   static public float jumpForce = 5.0f;
     private bool isJumping = false;
 
     public float pushForce = 4.0f;
@@ -27,7 +27,7 @@ public class PlayerOneControl : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.S))
         {
             Vector3 movement = -transform.forward * speed * Time.deltaTime;
             rb.MovePosition(rb.position + movement);
@@ -44,7 +44,7 @@ public class PlayerOneControl : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.F) && !isJumping)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isJumping = true;

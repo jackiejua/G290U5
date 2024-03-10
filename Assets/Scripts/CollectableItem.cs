@@ -11,6 +11,11 @@ public class CollectableItem : MonoBehaviour
     void OnTriggerEnter(Collider other){
         Managers.Inventory.AddItem(Collectable);
         Destroy(this.gameObject);
+        PlayerOneControl.speed += .5f;
+        PlayerTwoControl.speed += .5f;
+        PlayerOneControl.jumpForce += .5f;
+        PlayerTwoControl.jumpForce += .5f;
+        
     }
     // Start is called before the first frame update
     void Start()

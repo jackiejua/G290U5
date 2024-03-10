@@ -17,7 +17,7 @@ public class ScoreTwo : MonoBehaviour
             score++;
             Debug.Log("Player One Score: " + score);
             playertwo_text.text = "Player 1: " + score;
-            if(score == 10)
+            if(score >= 16)
             {
                 Debug.Log("Player One Wins!");
                 playertwo_text.text = "Player 1 Wins!";

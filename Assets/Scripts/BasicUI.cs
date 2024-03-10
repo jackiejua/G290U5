@@ -6,15 +6,15 @@ public class BasicUI : MonoBehaviour
 {
 
     void OnGUI(){
-        int posX = 10;
+        int posX = 250;
         int posY = 10;
-        int width = 100;
-        int height = 50;
+        int width = 250;
+        int height = 30;
         int buffer = 10;
 
         List<string> itemList = Managers.Inventory.GetItemList();
         if(itemList.Count == 0){
-            GUI.Box(new Rect(posX, posY, width, height), "No Items");
+            GUI.Box(new Rect(posX, posY, width, height), "Collect coins to speed up the game");
         }
         foreach(string item in itemList){
             int count = Managers.Inventory.GetItemCount(item);

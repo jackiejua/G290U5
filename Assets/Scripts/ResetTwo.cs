@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ResetTwo : MonoBehaviour
 {
-    public Vector3 respawnPosition = new Vector3(-8, 1.5f, -5);
+    public Vector3 respawnPos = new Vector3(-8, 1.5f, -5);
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Wall"))
         {
-            transform.position = respawnPosition;
+            transform.position = respawnPos;
         }
     }
 }

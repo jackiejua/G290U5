@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerTwoControl : MonoBehaviour
 {
-    public float speed = 10.0f;
-    public float jumpForce = 10.0f;
+    static public float speed = 5.0f;
+    static public float jumpForce = 5.0f;
     private bool isJumping = false;
     private Rigidbody rb;
 
@@ -31,7 +31,7 @@ public class PlayerTwoControl : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
 
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.K))
         {
             Vector3 movement = -transform.forward * speed * Time.deltaTime;
             rb.MovePosition(rb.position + movement);
@@ -43,7 +43,7 @@ public class PlayerTwoControl : MonoBehaviour
             rb.MovePosition(rb.position + movement);
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.H) && !isJumping)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isJumping = true;
